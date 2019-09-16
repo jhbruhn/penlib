@@ -5,6 +5,7 @@
 //! the result of plotting to real paper.
 pub mod blend;
 pub mod papermate;
+pub mod posca;
 
 use std::hash::Hash;
 
