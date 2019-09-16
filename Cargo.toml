@@ -1,5 +1,6 @@
 [package]
 name = "penlib"
+description = "A library which provides various attributes of different pen brands and products."
 version = "0.0.1"
 authors = ["cbgbt <cbgbt@cabbage.bot>"]
 edition = "2018"
