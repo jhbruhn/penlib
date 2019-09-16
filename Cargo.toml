@@ -3,6 +3,8 @@ name = "penlib"
 version = "0.0.1"
 authors = ["cbgbt <cbgbt@cabbage.bot>"]
 edition = "2018"
+license-file = "LICENSE"
+repository = "https://github.com/cbgbt/penlib"
 
 [dependencies]
 palette = "0.4"
