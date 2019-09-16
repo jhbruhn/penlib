@@ -1,0 +1,8 @@
+[package]
+name = "penlib"
+version = "0.1.0"
+authors = ["cbgbt <cbgbt@cabbage.bot>"]
+edition = "2018"
+
+[dependencies]
+palette = "0.4"
