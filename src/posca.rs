@@ -64,7 +64,7 @@ impl ColorPalette for UniPosca12Pk {
 
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub struct UniPosca1MC<T: ColorPalette> {
-    color: T,
+    pub color: T,
 }
 
 impl<T: ColorPalette> UniPosca1MC<T> {
