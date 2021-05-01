@@ -6,6 +6,7 @@
 pub mod blend;
 pub mod papermate;
 pub mod posca;
+pub mod stabilo;
 
 use std::hash::Hash;
 

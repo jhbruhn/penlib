@@ -11,3 +11,5 @@ repository = "https://github.com/cbgbt/penlib"
 
 [dependencies]
 palette = "0.4"
+strum = "0.20"
+strum_macros = "0.20"

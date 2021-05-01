@@ -4,12 +4,15 @@ use palette::rgb::LinSrgb;
 
 use crate::Pen;
 
+use strum::IntoEnumIterator;
+use strum_macros::EnumIter;
+
 pub trait ColorPalette: Clone + Eq + PartialEq + Hash {
     fn available_colors() -> Vec<Self>;
     fn rgb_color(&self) -> LinSrgb;
 }
 
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash, EnumIter)]
 pub enum UniPosca12Pk {
     Black,
     White,
@@ -27,20 +30,7 @@ pub enum UniPosca12Pk {
 
 impl ColorPalette for UniPosca12Pk {
     fn available_colors() -> Vec<Self> {
-        vec![
-            Self::Black,
-            Self::White,
-            Self::Brown,
-            Self::Blue,
-            Self::LightBlue,
-            Self::Green,
-            Self::LightGreen,
-            Self::SunshineYellow,
-            Self::Orange,
-            Self::Red,
-            Self::Pink,
-            Self::Violet,
-        ]
+        Self::iter().collect()
     }
 
     fn rgb_color(&self) -> LinSrgb {
@@ -62,7 +52,7 @@ impl ColorPalette for UniPosca12Pk {
     }
 }
 
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash, EnumIter)]
 pub enum UniPosca24Pk {
     Black,
     White,
@@ -91,31 +81,7 @@ pub enum UniPosca24Pk {
 
 impl ColorPalette for UniPosca24Pk {
     fn available_colors() -> Vec<Self> {
-        vec![
-            Self::Black,
-            Self::White,
-            Self::Red,
-            Self::Pink,
-            Self::Blue,
-            Self::LightBlue,
-            Self::Green,
-            Self::LightGreen,
-            Self::SunshineYellow,
-            Self::Yellow,
-            Self::Orange,
-            Self::Brown,
-            Self::Violet,
-            Self::Silver,
-            Self::Grey,
-            Self::Gold,
-            Self::GlitterLightBlue,
-            Self::GlitterViolet,
-            Self::GlitterBlue,
-            Self::GlitterPink,
-            Self::GlitterRed,
-            Self::GlitterOrange,
-            Self::GlitterYellow,
-        ]
+        Self::iter().collect()
     }
 
     fn rgb_color(&self) -> LinSrgb {
@@ -148,7 +114,6 @@ impl ColorPalette for UniPosca24Pk {
     }
 }
 
-
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub struct UniPosca1MC<T: ColorPalette> {
     pub color: T,
@@ -162,9 +127,7 @@ impl<T: ColorPalette> UniPosca1MC<T> {
 
 impl<T: ColorPalette> Pen for UniPosca1MC<T> {
     fn available_colors() -> Vec<Self> {
-        T::available_colors().into_iter()
-            .map(Self::new)
-            .collect()
+        T::available_colors().into_iter().map(Self::new).collect()
     }
 
     fn nib_size_mm() -> f64 {
@@ -175,7 +138,6 @@ impl<T: ColorPalette> Pen for UniPosca1MC<T> {
         self.color.rgb_color()
     }
 }
-
 
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub struct UniPosca3C<T: ColorPalette> {
@@ -190,9 +152,7 @@ impl<T: ColorPalette> UniPosca3C<T> {
 
 impl<T: ColorPalette> Pen for UniPosca3C<T> {
     fn available_colors() -> Vec<Self> {
-        T::available_colors().into_iter()
-            .map(Self::new)
-            .collect()
+        T::available_colors().into_iter().map(Self::new).collect()
     }
 
     fn nib_size_mm() -> f64 {
