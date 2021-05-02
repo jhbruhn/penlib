@@ -9,16 +9,16 @@ use strum_macros::EnumIter;
 /// TODO: There's more colours than these, these were the ones I have on hand
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash, EnumIter)]
 pub enum StabiloColor {
-    LightGreen,
-    Yellow,
-    Black,
-    Red,
-    Green,
-    Blue,
-    Purple,
-    Brown,
-    NeonPink,
-    Orange,
+    LightGreen = 43,
+    Yellow = 44,
+    Black = 46,
+    Red = 40,
+    Green = 36,
+    Blue = 41,
+    Purple = 55,
+    Brown = 45,
+    NeonPink = 56,
+    Orange = 54,
 }
 
 impl From<StabiloColor> for LinSrgb {

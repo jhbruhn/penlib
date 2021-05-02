@@ -7,6 +7,7 @@ pub mod blend;
 pub mod papermate;
 pub mod posca;
 pub mod stabilo;
+pub mod pilot;
 
 use std::hash::Hash;
 
